@@ -36,25 +36,8 @@ export default function InputFQ() {
 
     const handleSubmit = async () => {
         if (!file) return;
-    
         const formData = new FormData();
         formData.append('fastqFile', file);
-    
-        try {
-            const response = await fetch('http://your-backend-api/process-fastq', {
-                method: 'POST',
-                body: formData,
-            });
-            
-            if (!response.ok) throw new Error('Processing failed');
-            
-            const result = await response.json();
-            console.log('Analysis Results:', result);
-            // Handle results (update state to display in UI)
-            
-        } catch (error) {
-            setError(error.message || 'Error processing file');
-        }
     };
 
     return (
@@ -70,28 +53,14 @@ export default function InputFQ() {
                     <button 
                         onClick={handleSubmit}
                         disabled={!file}
-                        style={{
-                            padding: '0.5rem 1rem',
-                            backgroundColor: '#4CAF50',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '4px',
-                            cursor: file ? 'pointer' : 'not-allowed'
-                        }}
+                        className={`px-4 py-2 bg-green-500 text-white border-none rounded cursor-${file ? 'pointer' : 'not-allowed'}`}
                     >
                         Submit
                     </button>
                     <button 
                         onClick={handleClear}
                         disabled={!file}
-                        style={{
-                            padding: '0.5rem 1rem',
-                            backgroundColor: '#f44336',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '4px',
-                            cursor: file ? 'pointer' : 'not-allowed'
-                        }}
+                        className={`px-4 py-2 bg-red-500 text-white border-none rounded cursor-${file ? 'pointer' : 'not-allowed'}`}
                     >
                         Clear
                     </button>

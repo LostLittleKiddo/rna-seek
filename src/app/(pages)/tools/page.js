@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { UserAuth } from "../../../context/AuthContext";
 import Spinner from "../../../components/Spinner";
-import InputFQ from "./Input";
+import InputFQ from "../../../components/Input";
 
 export default function FastQCPage() {
     const { user } = UserAuth();

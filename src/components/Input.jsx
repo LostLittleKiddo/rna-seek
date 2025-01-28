@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import pako from 'pako';
 
 export default function InputFQ() {
     const [file, setFile] = useState(null);
@@ -36,8 +37,50 @@ export default function InputFQ() {
 
     const handleSubmit = async () => {
         if (!file) return;
-        const formData = new FormData();
-        formData.append('fastqFile', file);
+        
+        try {
+            let processedFile = file;
+
+            // Decompress if it's a GZIP file
+            if (file.name.toLowerCase().endsWith('.gz')) {
+                // Read the compressed file as ArrayBuffer
+                const arrayBuffer = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsArrayBuffer(file);
+                });
+
+                // Decompress using pako
+                const decompressedData = pako.inflate(new Uint8Array(arrayBuffer), { to: 'string' });
+                
+                // Create new File object with decompressed content
+                processedFile = new File(
+                    [decompressedData],
+                    file.name.replace(/\.gz$/i, ''),
+                    { type: 'text/plain' }
+                );
+            }
+
+            // Example: Submit the processed file (replace with your actual submission logic)
+            const formData = new FormData();
+            formData.append('file', processedFile);
+            
+            // Simulate API call
+            console.log('Submitting file:', processedFile.name);
+            // const response = await fetch('/your-api-endpoint', {
+            //     method: 'POST',
+            //     body: formData,
+            // });
+            
+            // Handle successful upload
+            setError('');
+            alert('File processed successfully!');
+            
+        } catch (err) {
+            setError(`Error processing file: ${err.message}`);
+            console.error('Decompression error:', err);
+        }
     };
 
     return (

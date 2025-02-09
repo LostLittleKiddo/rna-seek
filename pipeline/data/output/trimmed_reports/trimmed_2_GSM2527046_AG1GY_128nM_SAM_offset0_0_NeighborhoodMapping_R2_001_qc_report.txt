@@ -1,0 +1,18 @@
+FASTQ Quality Report: trimmed_2_GSM2527046_AG1GY_128nM_SAM_offset0_0_NeighborhoodMapping_R2_001.fastq
+==================================================
+Total Sequences: 71746
+Average Length: 75.0 bp
+GC Content: 42.6%
+Average Per Sequence Quality: 37.5
+Maximum Adapter Content: 0.00%
+
+Overrepresented Sequences:
+Sequence: CTGATTATTATTTCTAGAAACGCGCCAGGCGCTTACGGGGCAAAAGCTGC, Count: 1513, Percentage: 2.10883%
+Sequence: GCGCTTACGGGGCAAAAGCTGCCAGAGCCTCTGCAGATCCTGTCTCTTAT, Count: 638, Percentage: 0.88925%
+Sequence: CGGATCCGGACTAATCAGGCCAGCTGATTATTATTTCTAGAAACGCGCCA, Count: 314, Percentage: 0.43766%
+Sequence: CGGATCCGGACTAATCAGGCCAGCTGATTATTATTTCTAGAAACGCCTGT, Count: 238, Percentage: 0.33173%
+Sequence: CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC, Count: 155, Percentage: 0.21604%
+Sequence: CTGATTATTATTTCTAGAAACGCGCCAGGCGCTTACGGGGCAAAAGCTCT, Count: 99, Percentage: 0.13799%
+
+Quality plots part 1 saved to: ..\data\output\trimmed_reports\plots\trimmed_2_GSM2527046_AG1GY_128nM_SAM_offset0_0_NeighborhoodMapping_R2_001_quality_plots1.png
+Quality plots part 2 saved to: ..\data\output\trimmed_reports\plots\trimmed_2_GSM2527046_AG1GY_128nM_SAM_offset0_0_NeighborhoodMapping_R2_001_quality_plots2.png
